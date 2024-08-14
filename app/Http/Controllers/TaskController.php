@@ -39,10 +39,8 @@ class TaskController extends Controller
     // Mark a task as complete
     public function markAsComplete(Task $task)
     {
-        $task->is_complete = true;
-        $task->save();
-
-        return redirect()->route('dashboard')->with('success', 'Task marked as complete.');
+        $task->update(['is_completed' => true]);
+        return redirect()->back()->with('status', 'Task marked as complete!');
     }
 
     // Delete a task
