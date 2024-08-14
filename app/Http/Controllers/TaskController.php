@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -7,11 +6,11 @@ use App\Models\Task;
 
 class TaskController extends Controller
 {
-    // Display the list of tasks
+    // Display the tasks on the dashboard
     public function index()
     {
-        $tasks = auth()->user()->tasks; // Get tasks for the authenticated user
-        return view('tasks.index', compact('tasks'));
+        $tasks = auth()->user()->tasks()->get(); // Get tasks for the authenticated user
+        return view('dashboard', compact('tasks'));
     }
 
     // Display the task creation form
@@ -35,5 +34,22 @@ class TaskController extends Controller
         $task->save();
 
         return redirect()->route('dashboard')->with('success', 'Task created successfully.');
+    }
+
+    // Mark a task as complete
+    public function markAsComplete(Task $task)
+    {
+        $task->is_complete = true;
+        $task->save();
+
+        return redirect()->route('dashboard')->with('success', 'Task marked as complete.');
+    }
+
+    // Delete a task
+    public function destroy(Task $task)
+    {
+        $task->delete();
+
+        return redirect()->route('dashboard')->with('success', 'Task deleted successfully.');
     }
 }
