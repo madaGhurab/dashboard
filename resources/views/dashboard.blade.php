@@ -1,32 +1,23 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+        <h2 class="font-semibold text-xl text-pink-500 dark:text-gray-200 leading-tight">
+            {{ __('Dashboarddd') }}
         </h2>
-    </x-slot>
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+            <div class="bg-black dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-pink-400 dark:text-gray-100">
+                    {{ __("YaY you're logged in!👍🏻") }}
                 </div>
             </div>
 
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-6">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h1 class="my-4">My Tasks</h1>
-
-                    @if(session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    <a href="{{ route('tasks.create') }}" class="btn btn-primary mb-3">Create Task</a>
+            <!-- Display tasks -->
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-4">
+                <div class="p-11 text-grey-300 dark:text-gray-100">
+                    <h3 class="font-semibold text-lg">Your Tasks</h3>
 
                     @if($tasks->isEmpty())
-                        <p>No tasks available. Start by creating a new task.</p>
+                        <p>No tasks available. Start by creating a new task from "Task Creation" in navigation bar</p>
                     @else
                         <table class="table">
                             <thead>
@@ -48,7 +39,7 @@
                                                 <form action="{{ route('tasks.markAsComplete', $task->id) }}" method="POST" style="display:inline;">
                                                     @csrf
                                                     @method('PATCH')
-                                                    <button type="submit" class="btn btn-success btn-sm">Mark as Complete</button>
+                                                    <button type="submit" class="btn btn-success btn-sm">Complete</button>
                                                 </form>
                                             @endif
                                             <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" style="display:inline;">
@@ -66,4 +57,5 @@
             </div>
         </div>
     </div>
+    </x-slot>
 </x-app-layout>

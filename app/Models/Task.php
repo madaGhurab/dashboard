@@ -9,11 +9,14 @@ class Task extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'is_completed', 'user_id'];
+    protected $fillable = [
+        'title', 
+        'description', 
+        'user_id', 
+        'is_completed'
+    ];
 
-    /**
-     * Get the user that owns the task.
-     */
+    // Define the relationship with the User model
     public function user()
     {
         return $this->belongsTo(User::class);
