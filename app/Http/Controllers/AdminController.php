@@ -20,6 +20,9 @@ class AdminController extends Controller
         $tasks = Task::with('user')->get();
         //dd($this->authorize('viewAll', Task::class));
         //$this->authorize('viewAll', Task::class);
+        //authorize is a built in method 
+        //viewAll is a method defined in a policy
+        //policy has a viewAll method
         return view('admin.dashboard', compact('tasks'));
     }
 
