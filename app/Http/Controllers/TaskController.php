@@ -50,4 +50,9 @@ class TaskController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Task deleted successfully.');
     }
+    // Edit a task
+    //public function edit(Task $task){
+    //    $task->edit();
+    //    return redirect()->route('dashboard')->with('success', 'Task deleted successfully.');
+   // }
 }

@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 
@@ -17,12 +18,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
     // Admin routes
-Route::middleware('auth', 'can:admin')->group(function () {
-    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/users', [AdminController::class, 'manageUsers'])->name('admin.users');
-    Route::patch('/tasks/{task}/complete', [TaskController::class, 'markAsComplete'])->name('tasks.markAsComplete');
-    Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
-});
+    Route::middleware('admin')->group(function () {
+        Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+        Route::get('/admin/users', [AdminController::class, 'manageUsers'])->name('admin.users');
+    });
 
     // Task management routes
     Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
@@ -31,5 +30,6 @@ Route::middleware('auth', 'can:admin')->group(function () {
     Route::patch('/tasks/{task}/complete', [TaskController::class, 'markAsComplete'])->name('tasks.markAsComplete');
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 });
+
 
 require __DIR__.'/auth.php';

@@ -8,10 +8,18 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        //dd(1);
+        // Ensure only admins can access these methods
+        $this->middleware('admin');
+    }
     public function index()
     {
         // Fetch all tasks from all users
         $tasks = Task::with('user')->get();
+        //dd($this->authorize('viewAll', Task::class));
+        //$this->authorize('viewAll', Task::class);
         return view('admin.dashboard', compact('tasks'));
     }
 
