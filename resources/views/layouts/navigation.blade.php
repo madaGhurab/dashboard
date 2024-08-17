@@ -21,7 +21,11 @@
                         {{ __('Task Creation') }}
                     </x-nav-link>
                 </div>
-
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('groups.create')" :active="request()->routeIs('groups.create')">
+                        {{ __('Create Group') }}
+                    </x-nav-link>
+                </div>
                 @auth
                     @if(auth()->user()->role === 'admin')
                         <!-- Admin Links -->
@@ -95,6 +99,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('tasks.create')" :active="request()->routeIs('tasks.create')">
                 {{ __('Task Creation') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('groups.create')" :active="request()->routeIs('groups.create')">
+                 {{ __('Create Group') }}
             </x-responsive-nav-link>
             
             @auth
