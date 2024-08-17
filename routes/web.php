@@ -4,6 +4,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GroupController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +30,13 @@ Route::middleware('auth')->group(function () {
     Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
     Route::patch('/tasks/{task}/complete', [TaskController::class, 'markAsComplete'])->name('tasks.markAsComplete');
     Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
+    
+    // Group management routes
+    Route::get('/groups', [GroupController::class, 'index'])->name('groups.index');
+    Route::get('/groups/create', [GroupController::class, 'create'])->name('groups.create');
+    Route::post('/groups', [GroupController::class, 'store'])->name('groups.store');
+    Route::delete('/groups/{group}', [GroupController::class, 'destroy'])->name('groups.destroy');
+
 });
 
 

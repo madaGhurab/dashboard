@@ -24,6 +24,10 @@ class AdminController extends Controller
         //viewAll is a method defined in a policy
         //policy has a viewAll method
         return view('admin.dashboard', compact('tasks'));
+        
+        // Fetch all groups 
+        $groups = Groups::with('user')->get();
+        return view('admin.dashboard', compact('groups'));
     }
 
     public function manageUsers()

@@ -48,9 +48,17 @@ class User extends Authenticatable
     {
         return $this->hasMany(Task::class);
     }
+    
+    /**
+     * Get the groups for the user.
+     */
+    public function groups()
+    {
+        return $this->hasMany(Group::class);
+    }    
     public function isAdmin()
-{
-    return $this->role === 'admin';
-}
+    {
+        return $this->role === 'admin';
+    }
 
 }

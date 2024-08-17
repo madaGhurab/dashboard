@@ -55,6 +55,40 @@
                     @endif
                 </div>
             </div>
+            <!-- Display groups -->
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-4">
+                <div class="p-11 text-grey-300 dark:text-gray-100">
+                    <h3 class="font-semibold text-lg">Your Group</h3>
+
+                    @if($groups->isEmpty())
+                        <p>No groups available. Start by creating a new group from "Create Group" in navigation bar</p>
+                    @else
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Group Name</th>
+                                    <th>Members</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($groups as $group)
+                                    <tr>
+                                        <td>{{ $group->groupName }}</td>
+                                        <td>{{ $group->Members }}</td>
+                                        <td>
+                                            <form action="{{ route('groups.destroy', $group->id) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
     </x-slot>
