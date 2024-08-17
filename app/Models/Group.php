@@ -15,7 +15,7 @@ class Group extends Model
     ];
 
     // Define the relationship with the User model
-    public function user()
+    public function users()
     {
         return $this->belongsTo(User::class);
     }
