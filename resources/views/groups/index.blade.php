@@ -27,7 +27,6 @@
                     <tr>
                         <td>{{ $group->groupName }}</td>
                         <td>{{ $group->members }}</td>
-                        <!-- Add options for editing or deleting here if needed -->
                     </tr>
                 @endforeach
             </tbody>

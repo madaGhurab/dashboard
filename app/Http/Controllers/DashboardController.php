@@ -12,9 +12,11 @@ class DashboardController extends Controller
     {
         // Fetch tasks for the authenticated user
         $tasks = auth()->user()->tasks;
+        $groups = auth()->user()->groups;
     
-        // Pass the tasks to the view
-        return view('dashboard', ['tasks' => $tasks]);
+    // Pass the tasks and groups to the view
+    return view('dashboard', ['tasks' => $tasks, 'groups' => $groups]);
+
     }
 }
 

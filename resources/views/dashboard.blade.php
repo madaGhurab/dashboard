@@ -3,6 +3,8 @@
         <h2 class="font-semibold text-xl text-pink-300 dark:text-gray-200 leading-tight">
             {{ __('Dashboarddd') }}
         </h2>
+    
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-black dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -17,7 +19,7 @@
                     <h3 class="font-semibold text-lg">Your Tasks</h3>
 
                     @if($tasks->isEmpty())
-                        <p>No tasks available. Start by creating a new task from "Task Creation" in navigation bar</p>
+                        <p>No tasks available. Start by creating a new task from "Task Creation" in the navigation bar.</p>
                     @else
                         <table class="table">
                             <thead>
@@ -48,6 +50,34 @@
                                                 <button type="submit" class="btn btn-danger btn-sm">Delete</button>
                                             </form>
                                         </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+                </div>
+            </div>
+
+            <!-- Display groups -->
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg mt-4">
+                <div class="p-11 text-grey-300 dark:text-gray-100">
+                    <h3 class="font-semibold text-lg">My Groups</h3>
+
+                    @if($groups->isEmpty())
+                        <p>No groups available. Start by creating a new group from "Create Group" in the navigation bar.</p>
+                    @else
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Group Name</th>
+                                    <th>Members</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($groups as $group)
+                                    <tr>
+                                        <td>{{ $group->groupName }}</td>
+                                        <td>{{ $group->members_count }}</td> <!-- Ensure this is the correct way to count members -->
                                     </tr>
                                 @endforeach
                             </tbody>

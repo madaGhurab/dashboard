@@ -1,0 +1,47 @@
+[33mcommit ef3a546c5b461a841a4977f0be1a635415e81feb[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mNew-create-group-tab[m[33m, [m[1;31morigin/New-create-group-tab[m[33m)[m
+Author: mada ghurab <madaghurab2001@gmail.com>
+Date:   Sat Aug 17 19:55:52 2024 +0300
+
+    group creation form multi members
+
+[33mcommit b79a63940602deeb9c4fc6a9e0cdff8b65dd333a[m
+Author: mada ghurab <madaghurab2001@gmail.com>
+Date:   Sat Aug 17 18:20:43 2024 +0300
+
+    group creation form 1 member only
+
+[33mcommit 66c43cee2145ce0af7ebdd9bab20915676f7f6da[m[33m ([m[1;31morigin/admin-view-update[m[33m, [m[1;32mmaster[m[33m, [m[1;32madmin-view-update[m[33m)[m
+Author: mada ghurab <madaghurab2001@gmail.com>
+Date:   Thu Aug 15 09:35:59 2024 +0300
+
+    Update admin view and related functionality
+
+[33mcommit 25db8ce2eb7c63e9c5b19d1b54f3a04ae8da7d64[m[33m ([m[1;31morigin/dashboard-update[m[33m, [m[1;32mdashboard-update[m[33m)[m
+Author: mada ghurab <madaghurab2001@gmail.com>
+Date:   Thu Aug 15 00:34:00 2024 +0300
+
+    Separated admin dashboard from user dashboard and updated admin-specific navigation bar
+
+[33mcommit aecd61d7bcc46925dbbb91bfac82bf41469d5f25[m
+Author: mada ghurab <madaghurab2001@gmail.com>
+Date:   Thu Aug 15 00:12:06 2024 +0300
+
+    Fixed the 'Complete' and 'Delete' buttons
+
+[33mcommit 0b07529317f4ad393d714db2fbf4ffc692e61760[m
+Author: mada ghurab <madaghurab2001@gmail.com>
+Date:   Wed Aug 14 23:55:55 2024 +0300
+
+    Update dashboard layout and functionality
+
+[33mcommit 5d0c5ab3c876493a5d6c3d98e74dbb735e293a95[m[33m ([m[1;31morigin/task-creation[m[33m, [m[1;32mtask-creation[m[33m)[m
+Author: mada ghurab <madaghurab2001@gmail.com>
+Date:   Wed Aug 14 09:32:07 2024 +0300
+
+    Add task creation and display features
+
+[33mcommit c4beacf272f936bd62226f5d8f4f72c68d171bad[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mfeature-role-assignment[m[33m)[m
+Author: mada ghurab <madaghurab2001@gmail.com>
+Date:   Wed Aug 14 08:37:02 2024 +0300
+
+    Initial commit
